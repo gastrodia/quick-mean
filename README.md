@@ -1,49 +1,10 @@
-# Express.js Hello Boilerplate #
+models，使用mogoose将数据库操作抽象化，使用其规定格式定义数据对象，完全不需要关心数据库的问题。
 
-This project is a express.js boilerplate web app. It includes the following components:
+functions，在mogoose上又一层操作封装，主要是各种数据操作，将其封装，供不同的routes或者filters调用。
 
-* [Bower](http://twitter.github.com/bower/) for package management
-* [Grunt](http://gruntjs.com/) for building the assets
-* [Twitter Bootstrap](http://twitter.github.com/bootstrap/) for the layout
-* [jQuery](http://jquery.com/) for javascript
-* [EJS](https://github.com/visionmedia/ejs) as template engine with [express-blocks](https://github.com/aseemk/express-blocks) for layout support
-* [HTML5 Boilerplate](http://html5boilerplate.com/) for some bits and pieces
+filters，一些复用route的合集，例如用户检查，权限检查，通用module，总之就是各种抽象。
 
-## Quick start
+routes，逻辑的最顶层，负责请求调度，一个请求经过filters，获取到通用数据，然后进去各自的routes，在routes里调用functions方法操作和获取models定义的数据。然后把数据显示在views上或者直接返回给用户。
 
-* Clone the repo: `git clone git://github.com/vdrnn/expressjs-bootstrap your-project && cd your-project`
-* Install CLI dependencies: `npm install bower grunt -g`
-* Install project dependencies: `npm install`
-* Install assets using Bower: `bower install`
-* Generate static assets using Grunt: `grunt`
-* Start the application with: `node app.js`
-* Point your browser to [http://localhost:3000](http://localhost:3000)
-* During development you can run `grunt watch` on a separate tab to auto generate the static assets. See `grunt.js` for defined tasks
+views，在routes里调用，使用数据渲染页面
 
-## Authors
-
-**Alvaro Videla**
-
-+ http://twitter.com/old_sound
-+ http://github.com/videlalvaro
-
-**Vedran Zgela**
-
-+ http://twitter.com/vdrnn
-+ http://github.com/vdrnn
-
-## Copyright and license
-
-Copyright 2012 Alvaro Videla & Vedran Zgela.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this work except in compliance with the License.
-You may obtain a copy of the License in the LICENSE file, or at:
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
